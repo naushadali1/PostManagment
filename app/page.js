@@ -8,6 +8,19 @@ async function LatestPosts() {
   return <Posts posts={latestPosts} />;
 }
 
+// export const metadata = {
+//   title: 'All Posts',
+//   description: 'Browse and share amazing posts.',
+// };
+
+export async function generateMetadata() {
+  const posts = await getPosts();
+  const postslength = posts.length;
+  return {
+    title: `Browse all ${postslength} posts`,
+    description: 'Browse and share amazing posts.'
+  };
+}
 export default async function Home() {
   return (
     <>
